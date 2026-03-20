@@ -1,0 +1,27 @@
+services:
+  neo4j:
+    image: neo4j:5.28-community
+    container_name: doc-intel-neo4j
+    ports:
+      - "7474:7474"  # Browser
+      - "7687:7687"  # Bolt
+    environment:
+      NEO4J_AUTH: neo4j/doc-intel-2026
+      NEO4J_PLUGINS: '["apoc"]'
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+
+  backend:
+    build: ./backend
+    container_name: doc-intel-api
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - neo4j
+
+volumes:
+  neo4j_data:
+  neo4j_logs:
