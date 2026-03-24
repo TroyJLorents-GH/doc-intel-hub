@@ -42,7 +42,8 @@ Your report MUST be returned as valid JSON with this structure:
 }
 
 Guidelines:
-- Be specific with numbers and percentages
+- IMPORTANT: If the data includes "FULL DATASET STATISTICS" or "TOTAL MATCHING TICKETS", use those numbers as the authoritative counts — they represent ALL data, not just the sample chunks shown below them
+- Be specific with numbers and percentages based on the full dataset counts
 - Include chart_data when categorization or trends are relevant (set to null otherwise)
 - Include table_data for detailed breakdowns (set to null otherwise)
 - chart_data.type should be "pie" for categories, "bar" for comparisons, "line" for trends

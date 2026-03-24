@@ -42,6 +42,7 @@ def _embed_query(query: str) -> list[float]:
     response = client.embeddings.create(
         model=settings.OPENAI_EMBEDDING_DEPLOYMENT,
         input=[query],
+        dimensions=512,
     )
     return response.data[0].embedding
 

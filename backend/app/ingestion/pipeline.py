@@ -41,9 +41,10 @@ async def ingest_document(file_bytes: bytes, filename: str) -> IngestResponse:
 
     logger.info(f"Processing {filename}: {len(rich_chunks)} rich chunks, {len(thin_chunks)} thin chunks")
 
-    # Step 3: Enrich rich chunks — key phrases, entities, embeddings
+    # Step 3: Enrich rich chunks — embeddings only (Text Analytics disabled for speed)
+    # To re-enable entities/key phrases, uncomment the line below:
+    # rich_chunks = await extract_key_phrases_and_entities(rich_chunks)
     if rich_chunks:
-        rich_chunks = await extract_key_phrases_and_entities(rich_chunks)
         rich_chunks = await generate_embeddings(rich_chunks)
 
     # Step 4a: Store rich chunks in BOTH AI Search and Neo4j

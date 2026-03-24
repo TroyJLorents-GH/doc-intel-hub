@@ -7,6 +7,7 @@ import UploadPanel from "./components/UploadPanel";
 import ChatPanel from "./components/ChatPanel";
 import ReportsPanel from "./components/ReportsPanel";
 import DocumentsPanel from "./components/DocumentsPanel";
+import AnalyticsPanel from "./components/AnalyticsPanel";
 
 // MUI X Pro License
 const licenseKey = process.env.REACT_APP_MUI_LICENSE_KEY;
@@ -27,6 +28,8 @@ function App() {
         return <ReportsPanel />;
       case "documents":
         return <DocumentsPanel />;
+      case "analytics":
+        return <AnalyticsPanel />;
       default:
         return <UploadPanel />;
     }

@@ -19,6 +19,7 @@ import {
   Description as DocsIcon,
   Hub as HubIcon,
   Menu as MenuIcon,
+  Analytics as AnalyticsIcon,
 } from "@mui/icons-material";
 
 const DRAWER_WIDTH = 260;
@@ -33,6 +34,7 @@ const tabs = [
   { id: "upload", label: "Upload Documents", icon: <UploadIcon /> },
   { id: "chat", label: "Ask Your Data", icon: <ChatIcon /> },
   { id: "reports", label: "Generate Reports", icon: <ReportIcon /> },
+  { id: "analytics", label: "Dataset Analytics", icon: <AnalyticsIcon /> },
   { id: "documents", label: "Documents", icon: <DocsIcon /> },
 ];
 

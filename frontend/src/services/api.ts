@@ -48,3 +48,15 @@ export async function listDocuments(): Promise<DocumentInfo[]> {
 export async function deleteDocument(documentId: string): Promise<void> {
   await api.delete(`/documents/${documentId}`);
 }
+
+export interface AnalyzeResponse {
+  total_rows: number;
+  categories: Record<string, number>;
+  top_entities: { category: string; entity: string; mentions: number }[];
+  linux_tickets: { row: number; text: string }[];
+}
+
+export async function analyzeDataset(): Promise<AnalyzeResponse> {
+  const { data } = await api.get<AnalyzeResponse>("/analyze");
+  return data;
+}
